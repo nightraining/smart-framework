@@ -3,9 +3,13 @@ package org.smart4j.framework.ds;
 import javax.sql.DataSource;
 
 /**
- * 获取源工厂
+ * 数据源工厂
  */
 public interface DataSourceFactory {
 
+    /**
+     * 获取数据源
+     * @return 数据源
+     */
     DataSource getDataSource();
 }
