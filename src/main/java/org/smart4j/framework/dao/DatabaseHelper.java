@@ -19,9 +19,9 @@ import java.util.Map;
 /**
  * 封装数据库相关的操作
  */
-public class DataSourceHelper {
+public class DatabaseHelper {
 
-    private static final Logger logger = LoggerFactory.getLogger(DataSourceHelper.class);
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseHelper.class);
 
     /**
      * 定义一个局部线程变量（使每个线程都有自己的连接）
