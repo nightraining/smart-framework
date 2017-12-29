@@ -1,5 +1,8 @@
 package org.smart4j.framework.mvc;
 
+/**
+ * 处理器映射
+ */
 public interface HandlerMapping {
 
     /**
