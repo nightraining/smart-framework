@@ -115,5 +115,5 @@ public interface DataAccessor {
      * @param params
      * @return
      */
-    Serializable insertReturnPK(String sql, Object params);
+    Serializable insertReturnPK(String sql, Object... params);
 }
