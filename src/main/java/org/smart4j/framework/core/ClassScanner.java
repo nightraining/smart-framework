@@ -13,7 +13,7 @@ public interface ClassScanner {
      * @param packageName
      * @return
      */
-    List<Class<?>> getClass(String packageName);
+    List<Class<?>> getClassList(String packageName);
 
     /**
      * 获取指定包名中所指定注解的相关类
