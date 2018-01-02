@@ -133,6 +133,21 @@ public class WebUtil {
     }
 
     /**
+     * 转发请求
+     * @param path
+     * @param request
+     * @param response
+     */
+    public static void forwarRequest(String path, HttpServletRequest request, HttpServletResponse response){
+        try {
+            request.getRequestDispatcher(path).forward(request,response);
+        }catch (Exception e){
+            logger.error("转发请求出错！",e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * 重定向请求
      * @param path
      * @param request
