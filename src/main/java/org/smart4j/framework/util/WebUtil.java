@@ -51,7 +51,7 @@ public class WebUtil {
      * @param response
      * @param data
      */
-    public static void WriteHTML(HttpServletResponse response,Object data){
+    public static void writeHTML(HttpServletResponse response,Object data){
         try {
             //设置响应头
             response.setContentType("text/html");  //指定内容类型为 HTML 格式
