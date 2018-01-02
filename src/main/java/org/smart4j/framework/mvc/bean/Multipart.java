@@ -1,4 +1,6 @@
-package org.smart4j.framework.core.bean;
+package org.smart4j.framework.mvc.bean;
+
+import org.smart4j.framework.core.bean.BaseBean;
 
 import java.io.InputStream;
 
