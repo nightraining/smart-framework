@@ -7,8 +7,14 @@ import org.smart4j.framework.dao.DataAccessor;
 import org.smart4j.framework.dao.impl.DefaultDataAccessor;
 import org.smart4j.framework.ds.DataSourceFactory;
 import org.smart4j.framework.ds.impl.DefaultDataSourceFactory;
+import org.smart4j.framework.mvc.HandlerExceptionResolver;
+import org.smart4j.framework.mvc.HandlerInvoker;
 import org.smart4j.framework.mvc.HandlerMapping;
+import org.smart4j.framework.mvc.ViewResolver;
+import org.smart4j.framework.mvc.impl.DefaultHandlerExceptionResolver;
+import org.smart4j.framework.mvc.impl.DefaultHandlerInvoker;
 import org.smart4j.framework.mvc.impl.DefaultHandlerMapping;
+import org.smart4j.framework.mvc.impl.DefaultViewResolver;
 import org.smart4j.framework.util.ObjectUtil;
 import org.smart4j.framework.util.StringUtil;
 
@@ -92,6 +98,29 @@ public class InstanceFactory {
         return getInstance(HANDLER_MAPPING, DefaultHandlerMapping.class);
     }
 
+    /**
+     * 获取 HandlerInvoker
+     * @return
+     */
+    public static HandlerInvoker getHandlerInvoker(){
+        return getInstance(HANDLER_INVOKER, DefaultHandlerInvoker.class);
+    }
+
+    /**
+     * 获取 HandlerExceptionResolver
+     * @return
+     */
+    public static HandlerExceptionResolver getHandlerExceptionResolver(){
+        return getInstance(HNADLER_EXCEPTION_RESOLVER, DefaultHandlerExceptionResolver.class);
+    }
+
+    /**
+     * 获取 ViewResolver
+     * @return
+     */
+    public static ViewResolver getViewResolver(){
+        return getInstance(VIEW_RRSOLVER, DefaultViewResolver.class);
+    }
 
     /**
      * 返回实例
