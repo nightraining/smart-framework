@@ -153,7 +153,7 @@ public class WebUtil {
      * @param message
      * @param response
      */
-    public static void sendErrot(int code, String message, HttpServletResponse response){
+    public static void sendError(int code, String message, HttpServletResponse response){
         try {
             response.sendError(code, message);
         }catch (Exception e){
