@@ -142,7 +142,7 @@ public class SqlHelper {
      * @param sort
      * @return
      */
-    public static String generateSqlForPager(int pageNumber, int pageSize, Class<?> entityClass, String condition, String sort){
+    public static String generateSelectSqlForPager(int pageNumber, int pageSize, Class<?> entityClass, String condition, String sort){
         StringBuilder sql = new StringBuilder();
         String table = getTable(entityClass);
         String where = generateWhere(condition);
