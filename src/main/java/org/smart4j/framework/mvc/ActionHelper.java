@@ -2,6 +2,7 @@ package org.smart4j.framework.mvc;
 
 import org.smart4j.framework.core.ClassHelper;
 import org.smart4j.framework.mvc.annotation.Action;
+import org.smart4j.framework.mvc.annotation.Request;
 import org.smart4j.framework.util.ArrayUtil;
 import org.smart4j.framework.util.CollectionUtil;
 import org.smart4j.framework.util.StringUtil;
