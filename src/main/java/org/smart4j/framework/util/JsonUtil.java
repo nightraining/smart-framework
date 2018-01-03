@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * JSON 操作工具类
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class JsonUtil {
 
@@ -15,8 +18,6 @@ public class JsonUtil {
 
     /**
      * 将 Java 对象转为 JSON 字符串
-     * @param <T>obj
-     * @return <T>String
      */
     public static <T> String toJSON(T obj) {
         String jsonStr;
@@ -31,9 +32,6 @@ public class JsonUtil {
 
     /**
      * 将 JSON 字符串转为 Java 对象
-     * @param json
-     * @param Class<T> type
-     * @return <T> T
      */
     public static <T> T fromJSON(String json, Class<T> type) {
         T obj;

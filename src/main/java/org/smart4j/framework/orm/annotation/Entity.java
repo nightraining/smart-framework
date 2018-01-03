@@ -7,6 +7,9 @@ import java.lang.annotation.Target;
 
 /**
  * 定义 Entity 类
+ *
+ * @author huangyong
+ * @since 2.3
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

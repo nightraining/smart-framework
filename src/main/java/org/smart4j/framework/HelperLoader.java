@@ -11,10 +11,13 @@ import org.smart4j.framework.util.ClassUtil;
 
 /**
  * 加载相应的 Helper 类
+ *
+ * @author huangyong
+ * @since 2.0
  */
-public class HelperLoader {
+public final class HelperLoader {
 
-    public static void init(){
+    public static void init() {
         // 定义需要加载的 Helper 类
         Class<?>[] classList = {
             DatabaseHelper.class,
@@ -23,10 +26,10 @@ public class HelperLoader {
             BeanHelper.class,
             AopHelper.class,
             IocHelper.class,
-            PluginHelper.class
+            PluginHelper.class,
         };
         // 按照顺序加载类
-        for (Class<?> cls : classList){
+        for (Class<?> cls : classList) {
             ClassUtil.loadClass(cls.getName());
         }
     }

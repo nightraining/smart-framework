@@ -7,8 +7,11 @@ import java.lang.annotation.Target;
 
 /**
  * 定义测试用例顺序
+ *
+ * @author huangyong
+ * @since 1.0
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TestOrder {
 

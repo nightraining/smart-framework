@@ -1,18 +1,20 @@
 package org.smart4j.framework.mvc;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.smart4j.framework.util.ArrayUtil;
 import org.smart4j.framework.util.CastUtil;
 import org.smart4j.framework.util.CodecUtil;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 数据上下文
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class DataContext {
 
@@ -26,93 +28,80 @@ public class DataContext {
 
     /**
      * 初始化
-     * @param request
-     * @param response
      */
-    public static void init(HttpServletRequest request,HttpServletResponse response){
+    public static void init(HttpServletRequest request, HttpServletResponse response) {
         DataContext dataContext = new DataContext();
         dataContext.request = request;
-        dataContext.response= response;
+        dataContext.response = response;
         dataContextContainer.set(dataContext);
     }
 
     /**
      * 销毁
      */
-    public static void destroy(){
+    public static void destroy() {
         dataContextContainer.remove();
     }
 
     /**
      * 获取 DataContext 实例
-     * @return
      */
-    public static DataContext getInstance(){
+    public static DataContext getInstance() {
         return dataContextContainer.get();
     }
 
     /**
      * 获取 Request 对象
-     * @return
      */
-    public static HttpServletRequest getRequest(){
+    public static HttpServletRequest getRequest() {
         return getInstance().request;
     }
 
     /**
      * 获取 Response 对象
-     * @return
      */
-    public static HttpServletResponse getResponse(){
+    public static HttpServletResponse getResponse() {
         return getInstance().response;
     }
 
     /**
      * 获取 Session 对象
-     * @return
      */
-    public static HttpSession getSession(){
+    public static HttpSession getSession() {
         return getRequest().getSession();
     }
 
     /**
-     * 获取 ServletContext
-     * @return
+     * 获取 Servlet Context 对象
      */
-    public static javax.servlet.ServletContext getServletContext(){
+    public static javax.servlet.ServletContext getServletContext() {
         return getRequest().getServletContext();
     }
 
     /**
-     * 封装 Request 相关的操作
+     * 封装 Request 相关操作
      */
     public static class Request {
 
         /**
          * 将数据放入 Request 中
-         * @param key
-         * @param value
          */
-        public static void put(String key, Object value){
-            getRequest().setAttribute(key,value);
+        public static void put(String key, Object value) {
+            getRequest().setAttribute(key, value);
         }
 
         /**
          * 从 Request 中获取数据
-         * @param key
-         * @param <T>
-         * @return
          */
         @SuppressWarnings("unchecked")
-        public static <T> T get(String key){
+        public static <T> T get(String key) {
             return (T) getRequest().getAttribute(key);
         }
 
         /**
          * 移除 Request 中的数据
-         * @param key
          */
-        public static void remove(String key){
+        public static void remove(String key) {
             getRequest().removeAttribute(key);
         }
 
@@ -161,7 +150,6 @@ public class DataContext {
             return map;
         }
     }
-
 
     /**
      * 封装 Session 相关操作
@@ -241,6 +229,20 @@ public class DataContext {
                 }
             }
             return value;
+        }
+
+        /**
+         * 从 Cookie 中获取所有数据
+         */
+        public static Map<String, Object> getAll() {
+            Map<String, Object> map = new HashMap<String, Object>();
+            javax.servlet.http.Cookie[] cookieArray = getRequest().getCookies();
+            if (ArrayUtil.isNotEmpty(cookieArray)) {
+                for (javax.servlet.http.Cookie cookie : cookieArray) {
+                    map.put(cookie.getName(), cookie.getValue());
+                }
+            }
+            return map;
         }
     }
 

@@ -5,6 +5,9 @@ import java.util.regex.Matcher;
 
 /**
  * 封装 Action 方法相关信息
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class Handler {
 

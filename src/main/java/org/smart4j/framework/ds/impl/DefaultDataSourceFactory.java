@@ -2,11 +2,16 @@ package org.smart4j.framework.ds.impl;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
-
 /**
- * 默认数据源工厂：基于 Apache Commons DBCP 实现
+ * 默认数据源工厂
+ * <br/>
+ * 基于 Apache Commons DBCP 实现
+ *
+ * @author huangyong
+ * @since 2.3
  */
 public class DefaultDataSourceFactory extends AbstractDataSourceFactory<BasicDataSource> {
+
     @Override
     public BasicDataSource createDataSource() {
         return new BasicDataSource();
@@ -34,7 +39,7 @@ public class DefaultDataSourceFactory extends AbstractDataSourceFactory<BasicDat
 
     @Override
     public void setAdvancedConfig(BasicDataSource ds) {
-        // 解决 java.sql.SQLException:Already closed . 的问题（连接池会自动关闭长时间没有使用的连接）
+        // 解决 java.sql.SQLException: Already closed. 的问题（连接池会自动关闭长时间没有使用的连接）
         ds.setValidationQuery("select 1 from dual");
     }
 }

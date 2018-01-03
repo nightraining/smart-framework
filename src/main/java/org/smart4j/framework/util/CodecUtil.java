@@ -1,5 +1,9 @@
 package org.smart4j.framework.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.UUID;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.RandomStringUtils;
@@ -7,28 +11,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smart4j.framework.FrameworkConstant;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.UUID;
-
 /**
  * 编码与解码操作工具类
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class CodecUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(CodecUtil.class);
 
     /**
-     * 将　URL 编码
-     * @param str
-     * @return String
+     * 将 URL 编码
      */
-    public static String encodeURL(String str){
+    public static String encodeURL(String str) {
         String target;
         try {
-           target = URLEncoder.encode(str, FrameworkConstant.UTF_8);
-        }catch (Exception e){
+            target = URLEncoder.encode(str, FrameworkConstant.UTF_8);
+        } catch (Exception e) {
             logger.error("编码出错！", e);
             throw new RuntimeException(e);
         }
@@ -37,8 +37,6 @@ public class CodecUtil {
 
     /**
      * 将 URL 解码
-     * @param str
-     * @return String
      */
     public static String decodeURL(String str) {
         String target;
@@ -53,13 +51,11 @@ public class CodecUtil {
 
     /**
      * 将字符串 Base64 编码
-     * @param str
-     * @return String
      */
-    public static String encodeBASE64(String str){
+    public static String encodeBASE64(String str) {
         String target;
         try {
-            target = Base64.encodeBase64String(str.getBytes(FrameworkConstant.UTF_8));
+            target = Base64.encodeBase64URLSafeString(str.getBytes(FrameworkConstant.UTF_8));
         } catch (UnsupportedEncodingException e) {
             logger.error("编码出错！", e);
             throw new RuntimeException(e);
@@ -69,8 +65,6 @@ public class CodecUtil {
 
     /**
      * 将字符串 Base64 解码
-     * @param str
-     * @return String
      */
     public static String decodeBASE64(String str) {
         String target;
@@ -85,36 +79,29 @@ public class CodecUtil {
 
     /**
      * 将字符串 MD5 加密
-     * @param str
-     * @return String
      */
-    public static String encryptMD5(String str){
+    public static String encryptMD5(String str) {
         return DigestUtils.md5Hex(str);
     }
 
     /**
      * 将字符串 SHA 加密
-     * @param str
-     * @return String
      */
-    public static String encryptSHA(String str){
+    public static String encryptSHA(String str) {
         return DigestUtils.sha1Hex(str);
     }
 
     /**
      * 创建随机数
-     * @param count
-     * @return String
      */
-    public static String createRandom(int count){
+    public static String createRandom(int count) {
         return RandomStringUtils.randomNumeric(count);
     }
 
     /**
-     * 获取 UUID (32位)
-     * @return String
+     * 获取 UUID（32位）
      */
-    public static String createUUID(){
-        return UUID.randomUUID().toString().replace("-","");
+    public static String createUUID() {
+        return UUID.randomUUID().toString().replaceAll("-", "");
     }
 }

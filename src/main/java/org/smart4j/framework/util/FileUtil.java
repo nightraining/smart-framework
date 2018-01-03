@@ -1,15 +1,22 @@
 package org.smart4j.framework.util;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smart4j.framework.FrameworkConstant;
 
-import java.io.*;
-
 /**
  * 文件操作工具类
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class FileUtil {
 
@@ -17,17 +24,15 @@ public class FileUtil {
 
     /**
      * 创建目录
-     * @param dirPath
-     * @return File
      */
-    public static File createDir(String dirPath){
+    public static File createDir(String dirPath) {
         File dir;
-        try{
+        try {
             dir = new File(dirPath);
-            if (!dir.exists()){
+            if (!dir.exists()) {
                 FileUtils.forceMkdir(dir);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("创建目录出错！", e);
             throw new RuntimeException(e);
         }
@@ -36,8 +41,6 @@ public class FileUtil {
 
     /**
      * 创建文件
-     * @param filePath
-     * @return File
      */
     public static File createFile(String filePath) {
         File file;
@@ -56,8 +59,6 @@ public class FileUtil {
 
     /**
      * 复制目录（不会复制空目录）
-     * @param srcPath
-     * @param destPath
      */
     public static void copyDir(String srcPath, String destPath) {
         try {
@@ -74,8 +75,6 @@ public class FileUtil {
 
     /**
      * 复制文件
-     * @param srcPath
-     * @param destPath
      */
     public static void copyFile(String srcPath, String destPath) {
         try {
@@ -92,7 +91,6 @@ public class FileUtil {
 
     /**
      * 删除目录
-     * @param dirPath
      */
     public static void deleteDir(String dirPath) {
         try {
@@ -108,7 +106,6 @@ public class FileUtil {
 
     /**
      * 删除文件
-     * @param filePath
      */
     public static void deleteFile(String filePath) {
         try {
@@ -124,8 +121,6 @@ public class FileUtil {
 
     /**
      * 重命名文件
-     * @param srcPath
-     * @param destPath
      */
     public static void renameFile(String srcPath, String destPath) {
         File srcFile = new File(srcPath);
@@ -140,8 +135,6 @@ public class FileUtil {
 
     /**
      * 将字符串写入文件
-     * @param filePath
-     * @param fileContent
      */
     public static void writeFile(String filePath, String fileContent) {
         OutputStream os = null;
@@ -171,8 +164,6 @@ public class FileUtil {
 
     /**
      * 获取真实文件名（去掉文件路径）
-     * @param fileName
-     * @return
      */
     public static String getRealFileName(String fileName) {
         return FilenameUtils.getName(fileName);
@@ -180,8 +171,6 @@ public class FileUtil {
 
     /**
      * 判断文件是否存在
-     * @param filePath
-     * @return
      */
     public static boolean checkFileExists(String filePath) {
         return new File(filePath).exists();

@@ -4,12 +4,16 @@ import org.smart4j.framework.core.bean.BaseBean;
 
 /**
  * 封装返回数据
+ *
+ * @author huangyong
+ * @since 1.0
  */
+@SuppressWarnings("serial")
 public class Result extends BaseBean {
 
-    private boolean success; //成功标志
-    private int error;       //错误代码
-    private Object data;     //相关数据
+    private boolean success; // 成功标志
+    private int error;       // 错误代码
+    private Object data;     // 相关数据
 
     public Result(boolean success) {
         this.success = success;

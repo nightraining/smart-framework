@@ -7,44 +7,63 @@ import java.lang.annotation.Target;
 
 /**
  * 定义请求
+ *
+ * @author huangyong
+ * @since 1.0
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Request {
 
     /**
-     * 定义 Get 请求
+     * 定义 GET 请求
+     *
+     * @author huangyong
+     * @since 2.1
      */
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Get{
+    public @interface Get {
+
         String value();
     }
 
     /**
-     * 定义 Post 请求
+     * 定义 POST 请求
+     *
+     * @author huangyong
+     * @since 2.1
      */
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Post{
+    public @interface Post {
+
         String value();
     }
 
     /**
-     * 定义 Put 请求
+     * 定义 PUT 请求
+     *
+     * @author huangyong
+     * @since 2.1
      */
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Put{
+    public @interface Put {
+
         String value();
     }
 
     /**
-     * 定义 Delete 请求
+     * 定义 DELETE 请求
+     *
+     * @author huangyong
+     * @since 2.1
      */
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Delete{
+    public @interface Delete {
+
         String value();
     }
 }

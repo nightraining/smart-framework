@@ -1,13 +1,15 @@
 package org.smart4j.framework.aop.proxy;
 
-import net.sf.cglib.proxy.MethodProxy;
-
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import net.sf.cglib.proxy.MethodProxy;
 
 /**
  * 代理链
+ *
+ * @author huangyong
+ * @since 2.0
  */
 public class ProxyChain {
 
@@ -29,6 +31,10 @@ public class ProxyChain {
         this.proxyList = proxyList;
     }
 
+    public Object[] getMethodParams() {
+        return methodParams;
+    }
+
     public Class<?> getTargetClass() {
         return targetClass;
     }
@@ -37,13 +43,9 @@ public class ProxyChain {
         return targetMethod;
     }
 
-    public Object[] getMethodParams() {
-        return methodParams;
-    }
-
-    public Object doProxyChain() throws Throwable{
+    public Object doProxyChain() throws Throwable {
         Object methodResult;
-        if (proxyIndex < proxyList.size()){
+        if (proxyIndex < proxyList.size()) {
             methodResult = proxyList.get(proxyIndex++).doProxy(this);
         } else {
             methodResult = methodProxy.invokeSuper(targetObject, methodParams);

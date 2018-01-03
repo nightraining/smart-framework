@@ -1,5 +1,8 @@
 package org.smart4j.framework.orm;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import org.smart4j.framework.FrameworkConstant;
 import org.smart4j.framework.dao.DatabaseHelper;
 import org.smart4j.framework.dao.SqlHelper;
@@ -7,19 +10,18 @@ import org.smart4j.framework.util.ArrayUtil;
 import org.smart4j.framework.util.MapUtil;
 import org.smart4j.framework.util.ObjectUtil;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
- *  提供与实体相关的数据库操作
+ * 提供与实体相关的数据库操作
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class DataSet {
 
     /**
      * 查询单条数据，并转为相应类型的实体
      */
-    public static <T> T select(Class<T> entityClass, String condition, Object... params){
+    public static <T> T select(Class<T> entityClass, String condition, Object... params) {
         String sql = SqlHelper.generateSelectSql(entityClass, condition, "");
         return DatabaseHelper.queryEntity(entityClass, sql, params);
     }
@@ -27,14 +29,14 @@ public class DataSet {
     /**
      * 查询多条数据，并转为相应类型的实体列表
      */
-    public static <T> List<T> selectList(Class<T> entityClass){
+    public static <T> List<T> selectList(Class<T> entityClass) {
         return selectListWithConditionAndSort(entityClass, "", "");
     }
 
     /**
      * 查询多条数据，并转为相应类型的实体列表（带有查询条件与查询参数）
      */
-    public static <T> List<T> selectListWithCondition(Class<T> entityClass, String condition, Object... params){
+    public static <T> List<T> selectListWithCondition(Class<T> entityClass, String condition, Object... params) {
         return selectListWithConditionAndSort(entityClass, condition, "", params);
     }
 

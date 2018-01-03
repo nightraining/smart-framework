@@ -5,11 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 视图解析器
+ *
+ * @author huangyong
+ * @since 2.3
  */
 public interface ViewResolver {
 
     /**
      * 解析视图
+     *
      * @param request            请求对象
      * @param response           响应对象
      * @param actionMethodResult Action 方法返回值

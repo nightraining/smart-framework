@@ -1,28 +1,27 @@
 package org.smart4j.framework.util;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import java.util.Collection;
+import org.apache.commons.collections.CollectionUtils;
 
 /**
  * 集合操作工具类
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class CollectionUtil {
+
     /**
      * 判断集合是否非空
-     * @param collection
-     * @return boolean
      */
-    public static boolean isNotEmpty(Collection<?> collection){
+    public static boolean isNotEmpty(Collection<?> collection) {
         return CollectionUtils.isNotEmpty(collection);
     }
 
     /**
      * 判断集合是否为空
-     * @param collection
-     * @return boolean
      */
-    public static boolean isEmpty(Collection<?> collection){
+    public static boolean isEmpty(Collection<?> collection) {
         return CollectionUtils.isEmpty(collection);
     }
 }

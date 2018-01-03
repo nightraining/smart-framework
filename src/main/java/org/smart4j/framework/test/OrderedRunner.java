@@ -1,18 +1,19 @@
 package org.smart4j.framework.test;
 
-
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
 import org.smart4j.framework.HelperLoader;
 import org.smart4j.framework.test.annotation.TestOrder;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 /**
  * 使测试用例可按顺序执行
+ *
+ * @author huangyong
+ * @since 1.0
  */
 public class OrderedRunner extends BlockJUnit4ClassRunner {
 
@@ -28,20 +29,19 @@ public class OrderedRunner extends BlockJUnit4ClassRunner {
         HelperLoader.init();
     }
 
-    protected List<FrameworkMethod> computeTestMethods(){
-        if (testMethodList == null){
+    protected List<FrameworkMethod> computeTestMethods() {
+        if (testMethodList == null) {
             // 获取带有 Test 注解的方法
             testMethodList = super.computeTestMethods();
-            // 获取测试方法上的 Order 注解,并对所有的测试方法重新排序
+            // 获取测试方法上的 Order 注解，并对所有的测试方法重新排序
             Collections.sort(testMethodList, new Comparator<FrameworkMethod>() {
-                @Override
-                public int compare(FrameworkMethod o1, FrameworkMethod o2) {
-                    TestOrder t1 = o1.getAnnotation(TestOrder.class);
-                    TestOrder t2 = o2.getAnnotation(TestOrder.class);
-                    if (t1 == null || t2 == null){
+                public int compare(FrameworkMethod m1, FrameworkMethod m2) {
+                    TestOrder o1 = m1.getAnnotation(TestOrder.class);
+                    TestOrder o2 = m2.getAnnotation(TestOrder.class);
+                    if (o1 == null || o2 == null) {
                         return 0;
                     }
-                    return t1.value() - t2.value();
+                    return o1.value() - o2.value();
                 }
             });
         }

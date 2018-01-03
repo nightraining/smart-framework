@@ -2,6 +2,9 @@ package org.smart4j.framework.plugin;
 
 /**
  * 插件接口
+ *
+ * @author huangyong
+ * @since 2.0
  */
 public interface Plugin {
 
@@ -13,5 +16,5 @@ public interface Plugin {
     /**
      * 销毁插件
      */
-    void destory();
+    void destroy();
 }
