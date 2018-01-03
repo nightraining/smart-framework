@@ -1,4 +1,4 @@
-package org.smart4j.framework.mvc;
+package org.smart4j.framework.mvc.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
