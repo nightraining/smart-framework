@@ -6,6 +6,7 @@ package org.smart4j.framework.mvc.dault;
 public class AuthcException extends RuntimeException{
 
     public AuthcException() {
+        super();
     }
 
     public AuthcException(String message) {

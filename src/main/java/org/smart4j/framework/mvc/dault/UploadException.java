@@ -6,6 +6,7 @@ package org.smart4j.framework.mvc.dault;
 public class UploadException extends RuntimeException{
 
     public UploadException() {
+        super();
     }
 
     public UploadException(String message) {

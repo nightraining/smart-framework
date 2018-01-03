@@ -6,6 +6,7 @@ package org.smart4j.framework.mvc.dault;
 public class AuthzException extends RuntimeException {
 
     public AuthzException() {
+        super();
     }
 
     public AuthzException(String message) {
