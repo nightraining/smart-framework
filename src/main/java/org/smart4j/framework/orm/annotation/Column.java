@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * 定义列名
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Column {
 

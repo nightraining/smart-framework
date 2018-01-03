@@ -15,5 +15,5 @@ public interface HandlerInvoker {
      * @param handler   Handler
      * @throws Exception 异常
      */
-    void invokerHandler(HttpServletRequest request, HttpServletResponse response, Handler handler) throws Exception;
+    void invokeHandler(HttpServletRequest request, HttpServletResponse response, Handler handler) throws Exception;
 }
