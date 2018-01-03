@@ -1,9 +1,12 @@
 package org.smart4j.framework.dao.bean;
 
+import java.util.List;
+import org.smart4j.framework.core.bean.BaseBean;
+
 /**
  * 分页对象
  */
-public class Pager {
+public class Pager<T> extends BaseBean{
 
     private int pageNumber;         // 页面编号
     private int pageSize;           // 每页条数
