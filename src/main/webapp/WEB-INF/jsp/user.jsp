@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ include file="common/global.jsp" %>
-<%--<%@ taglib prefix="security" uri="/security" %>--%>
+<%@ taglib prefix="security" uri="/security" %>
 
 <!DOCTYPE html>
 <html>

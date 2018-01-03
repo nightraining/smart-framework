@@ -2,7 +2,6 @@ package org.smart4j.sample.action;
 
 import java.util.List;
 import java.util.Map;
-
 import org.smart4j.framework.ioc.annotation.Inject;
 import org.smart4j.framework.mvc.DataContext;
 import org.smart4j.framework.mvc.annotation.Action;
@@ -10,24 +9,45 @@ import org.smart4j.framework.mvc.annotation.Request;
 import org.smart4j.framework.mvc.bean.Params;
 import org.smart4j.framework.mvc.bean.Result;
 import org.smart4j.framework.mvc.bean.View;
-import org.smart4j.sample.entity.User;
+import org.smart4j.plugin.security.annotation.HasRoles;
+import org.smart4j.sample.bean.UserBean;
+import org.smart4j.sample.entity.Role;
+import org.smart4j.sample.service.PermissionService;
+import org.smart4j.sample.service.RoleService;
 import org.smart4j.sample.service.UserService;
 
 @Action
+@HasRoles("admin")
 public class UserAction {
 
-	@Inject
+    @Inject
     private UserService userService;
+
+    @Inject
+    private RoleService roleService;
+
+    @Inject
+    private PermissionService permissionService;
 
     @Request.Get("/users")
     public View index() {
-        List<User> userList = userService.findUserList();
-        DataContext.Request.put("userList", userList);
+        List<UserBean> userBeanList = userService.findUserBeanList();
+        DataContext.Request.put("userBeanList", userBeanList);
         return new View("user.jsp");
+    }
+
+    @Request.Post("/users")
+    public View search(Params params) {
+        String username = params.getString("username");
+        List<UserBean> userBeanList = userService.findUserBeanListByUsername(username);
+        DataContext.Request.put("userBeanList", userBeanList);
+        return new View("user_list.jsp");
     }
 
     @Request.Get("/user")
     public View create() {
+        List<Role> roleList = roleService.getRoleList();
+        DataContext.Request.put("roleList", roleList);
         return new View("user_create.jsp");
     }
 
@@ -40,8 +60,12 @@ public class UserAction {
 
     @Request.Get("/user/{id}")
     public View edit(long id) {
-        User user = userService.findUser(id);
-        DataContext.Request.put("user", user);
+        UserBean userBean = userService.findUserBean(id);
+        DataContext.Request.put("userBean", userBean);
+
+        List<Role> roleList = roleService.getRoleList();
+        DataContext.Request.put("roleList", roleList);
+
         return new View("user_edit.jsp");
     }
 

@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%--<%@ taglib prefix="security" uri="/security" %>--%>
+<%@ taglib prefix="security" uri="/security" %>
 
 <div id="header">
     <div class="logo">
