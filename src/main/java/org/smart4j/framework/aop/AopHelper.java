@@ -18,7 +18,13 @@ import org.smart4j.framework.util.CollectionUtil;
 import org.smart4j.framework.util.StringUtil;
 
 import java.lang.annotation.Annotation;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 初始化AOP 框架
@@ -119,7 +125,7 @@ public class AopHelper {
      * @param aspectProxyClassList
      */
     private static void sortAspectProxyClassList(List<Class<?>> aspectProxyClassList) {
-        //排序切面类列表
+        // 排序代理类列表
         Collections.sort(aspectProxyClassList, new Comparator<Class<?>>() {
             @Override
             public int compare(Class<?> aspect1, Class<?> aspect2) {
