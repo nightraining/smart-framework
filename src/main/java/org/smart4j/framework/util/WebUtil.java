@@ -250,10 +250,8 @@ public class WebUtil {
             int codeX = width / (codeCount + 1); // 字符横向间距
             int codeY = height - 4;              // 字符纵向间距
             int fontHeight = height - 2;         // 字体高度
-            int randomSeed = 10;                 // 随机数种子
-            char[] codeSequence = {              // 验证码中可出现的字符
-                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-            };
+            char[] codeSequence = FrameworkConstant.CAPTCHA.toCharArray();             // 验证码中可出现的字符
+            int randomSeed = codeSequence.length; // 随机数种子
             // 创建图像
             BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
             Graphics2D g = bi.createGraphics();
