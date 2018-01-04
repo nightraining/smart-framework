@@ -4,5 +4,5 @@
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags" %>
 
 <c:set var="BASE" value="${pageContext.request.contextPath}"/>
-
+<c:set var="BASE_COMMON" value="${BASE}/WEB-INF/jsp/common" />
 <f:setBundle basename="i18n.i18n_${system_language}"/>

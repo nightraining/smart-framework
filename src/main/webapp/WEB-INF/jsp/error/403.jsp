@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="../common/meta.jsp" %>
+    <%@ include file="../common/header.jsp" %>
     <title><f:message key="common.title"/> - <f:message key="error.page"/></title>
     <%@ include file="../common/style.jsp" %>
 </head>

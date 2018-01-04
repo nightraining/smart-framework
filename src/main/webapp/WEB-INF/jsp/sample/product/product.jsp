@@ -1,17 +1,7 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ include file="../../common/global.jsp" %>
-<%@ taglib prefix="security" uri="/security" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <%@ include file="../../common/meta.jsp" %>
-    <title><f:message key="common.title"/> - <f:message key="product"/></title>
-    <%@ include file="../../common/style.jsp" %>
-</head>
-<body>
-
 <%@ include file="../../common/header.jsp" %>
+<%@ taglib prefix="security" uri="/security" %>
+<%@ include file="../../common/top.jsp" %>
 
 <div id="content">
     <div id="main">
@@ -47,9 +37,4 @@
 
 <%@ include file="../../common/footer.jsp" %>
 
-<%@ include file="../../common/script.jsp" %>
-
 <script type="text/javascript" src="${BASE}/www/js/product.js"></script>
-
-</body>
-</html>
