@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ include file="common/global.jsp" %>
+<%@ include file="../../common/global.jsp" %>
 
 <c:set var="product" value="${productBean.product}"/>
 <c:set var="productType" value="${productBean.productType}"/>
@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="common/meta.jsp" %>
+    <%@ include file="../../common/meta.jsp" %>
     <title><f:message key="common.title"/> - <f:message key="product"/></title>
-    <%@ include file="common/style.jsp" %>
+    <%@ include file="../../common/style.jsp" %>
 </head>
 <body>
 
-<%@ include file="common/header.jsp" %>
+<%@ include file="../../common/header.jsp" %>
 
 <input type="hidden" id="id" value="${product.id}"/>
 
@@ -71,9 +71,9 @@
     </div>
 </div>
 
-<%@ include file="common/footer.jsp" %>
+<%@ include file="../../common/footer.jsp" %>
 
-<%@ include file="common/script.jsp" %>
+<%@ include file="../../common/script.jsp" %>
 
 <script type="text/javascript" src="${BASE}/www/js/product_view.js"></script>
 

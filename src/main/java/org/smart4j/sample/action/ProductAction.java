@@ -35,7 +35,7 @@ public class ProductAction {
         String name = "";
 
         Pager<ProductBean> productBeanPager = productService.getProductBeanPager(pageNumber, pageSize, name);
-        return new View("product.jsp")
+        return new View("sample/product/product.jsp")
             .data("productBeanPager", productBeanPager);
     }
 
@@ -46,7 +46,7 @@ public class ProductAction {
         String name = params.getString("name");
 
         Pager<ProductBean> productBeanPager = productService.getProductBeanPager(pageNumber, pageSize, name);
-        return new View("product_list.jsp")
+        return new View("sample/product/product_list.jsp")
             .data("productBeanPager", productBeanPager);
     }
 
@@ -54,7 +54,7 @@ public class ProductAction {
     @Request.Get("/product/create")
     public View create() {
         List<ProductType> productTypeList = productService.getProductTypeList();
-        return new View("product_create.jsp")
+        return new View("sample/product/product_create.jsp")
             .data("productTypeList", productTypeList);
     }
 
@@ -78,7 +78,7 @@ public class ProductAction {
     @Request.Get("/product/view/{id}")
     public View view(long id) {
         ProductBean productBean = productService.getProductBean(id);
-        return new View("product_view.jsp")
+        return new View("sample/product/product_view.jsp")
             .data("productBean", productBean);
     }
 
@@ -87,7 +87,7 @@ public class ProductAction {
     public View edit(long id) {
         List<ProductType> productTypeList = productService.getProductTypeList();
         ProductBean productBean = productService.getProductBean(id);
-        return new View("product_edit.jsp")
+        return new View("sample/product/product_edit.jsp")
             .data("productTypeList", productTypeList)
             .data("productBean", productBean);
     }
@@ -104,7 +104,7 @@ public class ProductAction {
     @Request.Get("/product/upload_picture/{id}")
     public View uploadPicture(long id) {
         Product product = productService.getProduct(id);
-        return new View("product_upload.jsp")
+        return new View("sample/product/product_upload.jsp")
             .data("product", product);
     }
 

@@ -23,7 +23,7 @@ public class SystemAction {
 
     @Request.Get("/login")
     public View login() {
-        return new View("login.jsp");
+        return new View("sample/login.jsp");
     }
 
     @Request.Post("/login")

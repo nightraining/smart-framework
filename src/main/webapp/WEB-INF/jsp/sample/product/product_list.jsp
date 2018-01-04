@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ include file="common/global.jsp" %>
+<%@ include file="../../common/global.jsp" %>
 <%@ taglib prefix="security" uri="/security" %>
 
 <c:set var="productBeanList" value="${productBeanPager.recordList}"/>

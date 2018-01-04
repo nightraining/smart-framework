@@ -33,7 +33,7 @@ public class UserAction {
     public View index() {
         List<UserBean> userBeanList = userService.findUserBeanList();
         DataContext.Request.put("userBeanList", userBeanList);
-        return new View("user.jsp");
+        return new View("sample/user/user.jsp");
     }
 
     @Request.Post("/users")
@@ -41,14 +41,14 @@ public class UserAction {
         String username = params.getString("username");
         List<UserBean> userBeanList = userService.findUserBeanListByUsername(username);
         DataContext.Request.put("userBeanList", userBeanList);
-        return new View("user_list.jsp");
+        return new View("sample/user/user_list.jsp");
     }
 
     @Request.Get("/user")
     public View create() {
         List<Role> roleList = roleService.getRoleList();
         DataContext.Request.put("roleList", roleList);
-        return new View("user_create.jsp");
+        return new View("sample/user/user_create.jsp");
     }
 
     @Request.Post("/user")
@@ -66,7 +66,7 @@ public class UserAction {
         List<Role> roleList = roleService.getRoleList();
         DataContext.Request.put("roleList", roleList);
 
-        return new View("user_edit.jsp");
+        return new View("sample/user/user_edit.jsp");
     }
 
     @Request.Put("/user/{id}")

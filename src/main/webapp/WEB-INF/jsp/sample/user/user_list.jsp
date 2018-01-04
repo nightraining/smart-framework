@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ include file="common/global.jsp" %>
+<%@ include file="../../common/global.jsp" %>
 
 <table class="css-table">
     <thead>

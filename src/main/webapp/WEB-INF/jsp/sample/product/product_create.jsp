@@ -1,16 +1,16 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ include file="common/global.jsp" %>
+<%@ include file="../../common/global.jsp" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="common/meta.jsp" %>
+    <%@ include file="../../common/meta.jsp" %>
     <title><f:message key="common.title"/> - <f:message key="product"/></title>
-    <%@ include file="common/style.jsp" %>
+    <%@ include file="../../common/style.jsp" %>
 </head>
 <body>
 
-<%@ include file="common/header.jsp" %>
+<%@ include file="../../common/header.jsp" %>
 
 <div id="content">
     <form id="product_create_form" enctype="multipart/form-data" class="css-form">
@@ -55,9 +55,9 @@
     </form>
 </div>
 
-<%@ include file="common/footer.jsp" %>
+<%@ include file="../../common/footer.jsp" %>
 
-<%@ include file="common/script.jsp" %>
+<%@ include file="../../common/script.jsp" %>
 
 <script type="text/javascript" src="${BASE}/www/js/product_create.js"></script>
 
