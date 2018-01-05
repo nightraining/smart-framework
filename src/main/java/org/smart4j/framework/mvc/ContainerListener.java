@@ -15,9 +15,6 @@ import org.smart4j.framework.util.StringUtil;
 
 /**
  * 容器监听器
- *
- * @author huangyong
- * @since 1.0
  */
 @WebListener
 public class ContainerListener implements ServletContextListener {
@@ -44,6 +41,9 @@ public class ContainerListener implements ServletContextListener {
         destroyPlugin();
     }
 
+    /**
+     * 添加 Servlet 映射
+     */
     private void addServletMapping(ServletContext context) {
         // 用 DefaultServlet 映射所有静态资源
         registerDefaultServlet(context);
@@ -51,6 +51,9 @@ public class ContainerListener implements ServletContextListener {
         registerJspServlet(context);
     }
 
+    /**
+     * 用 DefaultServlet 映射所有静态资源
+     */
     private void registerDefaultServlet(ServletContext context) {
         ServletRegistration defaultServlet = context.getServletRegistration("default");
         defaultServlet.addMapping("/index.html");
@@ -61,6 +64,9 @@ public class ContainerListener implements ServletContextListener {
         }
     }
 
+    /**
+     * 用 JspServlet 映射所有 JSP 请求
+     */
     private void registerJspServlet(ServletContext context) {
         ServletRegistration jspServlet = context.getServletRegistration("jsp");
         jspServlet.addMapping("/index.jsp");
@@ -70,6 +76,9 @@ public class ContainerListener implements ServletContextListener {
         }
     }
 
+    /**
+     * 注册 WebPlugin
+     */
     private void registerWebPlugin(ServletContext servletContext) {
         List<Plugin> pluginList = PluginHelper.getPluginList();
         for (Plugin plugin : pluginList) {
@@ -80,6 +89,9 @@ public class ContainerListener implements ServletContextListener {
         }
     }
 
+    /**
+     * 销毁插件
+     */
     private void destroyPlugin() {
         List<Plugin> pluginList = PluginHelper.getPluginList();
         for (Plugin plugin : pluginList) {
