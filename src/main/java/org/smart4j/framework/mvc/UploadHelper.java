@@ -29,9 +29,6 @@ import org.smart4j.framework.util.StringUtil;
 
 /**
  * 封装文件上传相关操作
- *
- * @author huangyong
- * @since 2.1
  */
 public class UploadHelper {
 

@@ -6,9 +6,6 @@ import org.smart4j.framework.core.bean.BaseBean;
 
 /**
  * 封装文件上传对象相关属性
- *
- * @author huangyong
- * @since 1.0
  */
 @SuppressWarnings("serial")
 public class Multipart extends BaseBean {
