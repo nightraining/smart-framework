@@ -1,5 +1,5 @@
 -- ----------------------------
--- Table structure for user
+-- Table structure for user 
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
