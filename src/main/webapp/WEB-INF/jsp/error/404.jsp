@@ -1,14 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ include file="../common/global.jsp" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <%@ include file="../common/header.jsp" %>
-    <title><f:message key="common.title"/> - <f:message key="error.page"/></title>
-    <%@ include file="../common/style.jsp" %>
-</head>
-<body>
+<%@ include file="../common/header.jsp" %>
 
 <div id="header">
     <div class="logo">
@@ -24,8 +15,3 @@
 </div>
 
 <%@ include file="../common/footer.jsp" %>
-
-<%@ include file="../common/script.jsp" %>
-
-</body>
-</html>
