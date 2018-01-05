@@ -22,9 +22,6 @@ import org.smart4j.framework.util.StringUtil;
 
 /**
  * 实例工厂
- *
- * @author huangyong
- * @since 2.3
  */
 public class InstanceFactory {
 
