@@ -9,9 +9,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
  * 提供 Bean 类的基础特性
- *
- * @author huangyong
- * @since 1.0
  */
 @SuppressWarnings("serial")
 public abstract class BaseBean implements Serializable {
